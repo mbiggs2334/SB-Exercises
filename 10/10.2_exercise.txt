@@ -1,0 +1,10 @@
+const PI = 3.14;
+
+Quiz
+1. var is function scoped where let is block scoped. var can also be redeclared where let cannot be redelcared
+
+2. var is function scoped where const is block scoped. var can be redeclared where const cannot.
+
+3. let can be reassigned and const cannot be reassigned
+
+4. Hoisting  is when the browser will read through the variable (and I believe functions as well) delcarations before any other code in the file is run. Out of the 3 different variable delcaration methods, only var gets hoisted.
