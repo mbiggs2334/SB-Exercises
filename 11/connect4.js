@@ -70,12 +70,15 @@ function findSpotForCol(x) {
   for(let i = HEIGHT; i > 0; i--){
     if(gameBoard[i].children[x].children.length === 0){
       y = i;
-      break;
-    } else {
-      y = null
+      console.log(y);
+      return y - 1
+    } else if(!(gameBoard[1].children[x].children.length === 0)){
+      y = null;
+      console.log(y);
+      return y;
     }
   }
-  return y - 1;
+  ;
 }
 
 // placeInTable: update DOM to place piece into HTML table of board
@@ -113,8 +116,7 @@ function handleClick(evt) {
 
   // place piece in board and add to HTML table
   // TODO: add line to update in-memory board
-  board[y][x] = 
-  currPlayer;
+  board[y][x] = currPlayer;
   placeInTable(y, x);
   
   // check for win
