@@ -1,0 +1,58 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: rgba(0, 0, 0, 0.938);
+}
+
+h1 {
+    margin: 0;
+    padding: 1rem;
+    padding-bottom: .5rem;
+    color: white;
+    text-align: center;
+    font-size: 3rem;
+}
+
+.form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 1rem;
+    margin-top: 0;
+}
+
+.gif-holder {
+    margin: auto;
+    margin-top: 1rem;
+    width: 80vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+img {
+    margin: 10px;
+}
+
+input {
+    margin: .3em;
+}
+
+button{
+    margin: .3em;
+}
+
+#search-btn {
+    background-color: rgb(90, 90, 90);
+    color: white;
+    height: 3em;
+}
+
+#remove-btn {
+    background-color: red;
+    color: white;
+    height: 3em;
+    font-weight: bold;
+}
+
