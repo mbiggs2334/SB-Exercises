@@ -116,7 +116,7 @@ function populateEpisodes(arr){
   for(let episode of arr){
     $('#episodes-list').append(`<li id='ep-${episode.id}' class='li'>${episode.name} (Season: ${episode.season} Episode: ${episode.number}) </li>`);
     $(`#ep-${episode.id}`).append(`<button class='more-btn' id='more-btn'>More</button>`)
-    if (episode.sum !== null){
+    if (episode.sum !== null && episode.sum !== ''){
       $(`#ep-${episode.id}`).append(`<span id='ep-sum-${episode.id}' class='ep-sum'>${episode.sum}</span>`)
     } else if(episode.sum === null || episode.sum === ''){
       $(`#ep-${episode.id}`).append(`<span id='ep-sum-${episode.id}' class='ep-sum'>No summary available</span>`)
