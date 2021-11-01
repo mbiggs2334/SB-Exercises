@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block title %}Home Page{% endblock %}
+
+{% block content%}
+    <h1>Madlib!</h1>
+        <form id='madlib-form' action="/story">
+            {% for word in story.prompts %}
+                <label for="{{word}}">Enter a {{word}}:</label>
+                <input id='{{word}}' name="{{word}}" type="text" placeholder='{{word}}'><br>
+            {% endfor %}
+            <button id='submit-btn'>Submit</button>
+        </form>
+    <script src="/static/app.js"></script>
+{% endblock %}
