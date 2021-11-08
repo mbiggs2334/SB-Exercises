@@ -1,0 +1,41 @@
+{% extends 'base.html' %} {% block linktags %}
+<link rel="stylesheet" href="/static/board.css" />
+{% endblock %} {% block title%}Boggle!{% endblock %} {% block content%}
+<div class="game-container">
+  <div class="board-container">
+    <table id="boggle-board">
+      {% for y in board %}
+      <tr>
+        {% for x in y %}
+        <td>{{x}}</td>
+        {% endfor %}
+      </tr>
+      {% endfor %}
+    </table>
+  </div>
+  <div class="form-container">
+    <div id="score">Score: 0</div>
+    <div id="high-score">High-Score: {{session['high-score']}}</div>
+    <div id="timer">Time left: 60</div>
+    <p id="guess-response"></p>
+    <form id="boggle-guess" method="GET" onsubmit="return false">
+      <label for="guess">Enter a guess: </label>
+      <input type="text" name="guess" placeholder="your guess..." id="guess" />
+      <button id="submit-button">Submit</button>
+      <button id="reset">Restart</button>
+    </form>
+    
+  </div>
+  <div id='guess-container' class="guess-container">
+    <ul id="words-guessed">
+      <h3>Words Guessed:</h3>
+    </ul>
+  </div>
+</div>
+
+<button id='start-btn'>Start</button>
+
+<script src="http://unpkg.com/jquery"></script>
+<script src="http://unpkg.com/axios/dist/axios.js"></script>
+<script src="/static/app.js"></script>
+{% endblock %}

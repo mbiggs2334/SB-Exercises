@@ -1,0 +1,79 @@
+.game-container {
+    background-color: gray;
+    width: 80vw;
+    margin: auto;
+    margin-top: 2rem;
+    display: flex;
+    max-height: 241px;
+    max-width: 1022px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.board-container {
+    box-sizing: border-box;
+    width: 25%;
+    border: 1px solid black;
+}
+
+.form-container{
+    box-sizing: border-box;
+    padding: 2rem;
+    width: 50%;
+    border: 1px solid black;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: space-between;
+}
+
+#score, #high-score, #timer {
+    width: 33%;
+}
+
+.guess-container {
+    box-sizing: border-box;
+    width: 25%;
+    border: 1px solid black;
+    overflow: auto;
+}
+
+#boggle-board{
+    font-size: 2rem;
+    width: 100%;
+    padding: 1rem;
+    text-align: center;
+}
+
+.guess-container ul{
+    margin: 0;
+}
+
+.guess-container h3{
+    text-decoration: underline;
+    margin-bottom: 0.5rem;
+}
+
+.correct {
+    color: rgb(0, 236, 0)
+}
+
+.not-on-board {
+    color: rgb(255, 0, 0);
+}
+
+.not-a-word {
+    color: yellow
+}
+
+.form-container input:focus {
+    background-color: black;
+    color:white;
+    transition: all .3s;
+}
+
+#start-btn{
+    display:block;
+    margin: auto;
+    margin-top: 1rem;
+    font-size: 2rem;
+}

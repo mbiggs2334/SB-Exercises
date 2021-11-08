@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block linktags %}
+<link rel="stylesheet" href="/static/index.css">
+{% endblock %}
+{% block title %}Home Page{% endblock %}
+{% block content %}
+    <h1>Welcome to boggle!</h1>
+    <p><b>Rules:</b> You have 60 seconds to guess as many words as you can! You get 1 point for each letter in a correctly guessed word.</p>
+    <form action='/game'>
+        <button>Play!</button>
+    </form>
+{% endblock %}

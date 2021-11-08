@@ -1,0 +1,10 @@
+h1 {
+    text-align: center;
+}
+
+button, p {
+    display: block;
+    margin: auto;
+    text-align: center;
+    margin-top: 1rem
+}
