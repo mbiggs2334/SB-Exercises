@@ -83,7 +83,6 @@ class BoggleGame {
 
     //starts the game/timer and adds event listeners to start and restart buttons
     startGame(){
-        console.log(this)
         $startBtn.remove()
         $guess.focus()
         subBtn.addEventListener('click', this.checkForValidWordBinded)

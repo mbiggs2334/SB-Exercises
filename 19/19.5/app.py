@@ -1,4 +1,3 @@
-from flask.templating import render_template
 from boggle import Boggle
 from flask import Flask, request, session, render_template, redirect, jsonify, flash
 
