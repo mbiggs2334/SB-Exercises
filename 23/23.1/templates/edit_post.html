@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block title %}Edit Post{% endblock %}
+
+{% block content %}
+<h1>Edit '{{post.title}}'</h1>
+This was originally created <small>{{post.created_at}}</small>
+<form action="/posts/{{post.id}}/edit" method="POST">
+  <label for="title">Title:</label>
+  <input value='{{post.title}}' type="text" name="title" placeholder="Enter a title..." /><br />
+  <label for="content">Content:</label>
+  <textarea
+    type="text"
+    name="content"
+    placeholder="Enter some content! (Max 500 characters)"
+    maxlength="500"
+  >{{post.content}}</textarea><br />
+  <button>Submit</button>
+</form>
+<form action='/posts/{{post.id}}'>
+    <button>Cancel</button>
+</form>
+{% endblock %}

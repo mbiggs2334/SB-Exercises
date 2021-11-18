@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block title %}{{post.title}}{% endblock %}
+
+{% block content %}
+<h1>{{post.title}}</h1>
+By: {{post.user_info.get_full_name()}}
+{% if post.edited_at %}
+<small> edited @ {{post.edited_at}}</small>
+{% else %}
+<small> @ {{post.created_at}}</small>
+{% endif %}
+
+<p>{{post.content}}</p>
+<form action='/users/{{post.user_id}}'>
+    <button>Go Back</button>
+</form>
+<form action='/posts/{{post.id}}/edit'>
+    <button>Edit Post</button>
+</form>
+<form action='/posts/{{post.id}}/delete' method='POST'>
+    <button>Delete Post</button>
+</form>
+{% endblock %}
