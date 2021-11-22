@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block title %}Home Page{% endblock %}
+
+{% block content %}
+<h2><a href="/users">USERS</a></h2>
+<h2><a href="/tags">TAGS</a></h2>
+
+<h1 style='text-decoration: underline'>Recent Posts</h1>
+{% for post in posts %}
+<h2><a href="/posts/{{post.id}}">{{post.title}}</a></h2>
+By: <a href="/users/{{post.user_id}}">{{post.user_info.get_full_name()}}</a>
+{% if post.edited_at %}
+<small> edited @ {{post.edited_at}}</small>
+{% else %}
+<small> @ {{post.created_at}}</small>
+{% endif %}
+<p>{{post.content}}</p>
+<p>
+    {% if post.post_tags %}
+        Tags: {% for tag in post.post_tags %}
+        <span><a href="/tags/{{tag.tag.id}}">{{tag.tag.name}}</a></span>
+        {% endfor %}
+    {% else %}
+        Tags: None
+    {% endif %}
+</p>
+<hr>
+{% endfor %}
+{% endblock %}

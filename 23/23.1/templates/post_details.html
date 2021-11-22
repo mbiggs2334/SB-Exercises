@@ -9,8 +9,18 @@ By: {{post.user_info.get_full_name()}}
 {% else %}
 <small> @ {{post.created_at}}</small>
 {% endif %}
-
 <p>{{post.content}}</p>
+
+<p>
+    {% if tags %}
+        Tags: {% for tag in tags %}
+        <span><a href="/tags/{{tag.tag.id}}">{{tag.tag.name}}</a></span>
+        {% endfor %}
+    {% else %}
+        Tags: None
+    {% endif %}
+</p>
+
 <form action='/users/{{post.user_id}}'>
     <button>Go Back</button>
 </form>

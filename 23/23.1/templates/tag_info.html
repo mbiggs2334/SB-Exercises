@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block title %}{% endblock %}
+
+{% block content %}
+<h1>{{tag.name}}</h1>
+<form action='/tags/{{tag.id}}/edit'>
+    <button>Edit Tag</button>
+</form>
+<form action='/tags/{{tag.id}}/delete' method='POST'>
+    <button>Delete Tag</button>
+</form>
+<form action='/tags'>
+    <button>Go Back</button>
+</form>
+<h2>Posts with tag {{tag.name}}</h2>
+<ul>
+{% for post in posts %}
+    <li><a href="/posts/{{post.post.id}}">{{post.post.title}}</a> <small>created by {{post.post.user_info.get_full_name()}}</small></li>
+{% endfor %}
+</ul>
+{% endblock %}

@@ -6,6 +6,8 @@ db = SQLAlchemy()
 def connect_db(app):
     db.app = app
     db.init_app(app)
+    # db.drop_all()
+    # db.create_all()
     
 class User(db.Model):
     __tablename__ = 'users'
@@ -47,3 +49,26 @@ class Posts(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
     
     user_info = db.relationship('User', backref='posts')
+    
+    post_tags = db.relationship('PostTags', backref='post')
+    
+class Tags(db.Model):
+    __tablename__ = 'tags'
+    
+    id = db.Column(db.Integer,
+                   primary_key=True,
+                   autoincrement=True)
+
+    name = db.Column(db.String(15),
+                     unique=True,
+                     nullable=False)
+    
+    post_tags = db.relationship('PostTags', backref='tag')
+
+
+class PostTags(db.Model):
+    __tablename__ = 'posttags'
+
+    post_id = db.Column(db.Integer, db.ForeignKey('posts.id'), primary_key=True )
+
+    tag_id = db.Column(db.Integer, db.ForeignKey('tags.id'), primary_key=True)
