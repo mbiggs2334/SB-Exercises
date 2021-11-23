@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block title%}Home Page{% endblock %}
+{% block content %}
+<header class='mb-3'>
+    <h1 class='text-center display-3'>Get your new pet today!</h1>
+    <div class='text-center'><a class='btn btn-primary btn-lg' href="/pets/new">Put a pet up for adoption!</a></div>
+</header>
+<div class='container'>
+{% for pet in pets %}
+    <div class='d-flex flex-column align-items-center'>
+        <span class='d-block h3 text-center p-2'>Name: {{pet.name}}</span>
+        <a href="/pets/{{pet.id}}"><img class='p-2 mb-2 rounded img-fluid max-height max-width' src="{{pet.photo_url}}" alt="Image of {{pet.name}}"></a>
+        <div class='text-center p-2'><a href="/pets/{{pet.id}}" class='btn btn-sm btn-info'>Details</a></div>
+    </div>
+    <hr>
+{% endfor %}
+</div>
+{% endblock %}
