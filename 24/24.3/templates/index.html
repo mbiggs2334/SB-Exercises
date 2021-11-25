@@ -1,0 +1,75 @@
+{% extends 'base.html' %} {% block title %}Home Page{% endblock %} {% block
+content %}
+<h1 class='display-1 text-center'>CUPCAKES!</h1>
+<div class="d-flex flex-row container border border-dark rounded mt-4 height">
+  <div class="d-flex flex-column rounded-start container p-4 overflow-auto">
+    {% for cupcake in cupcakes %}
+    <div data-id='{{cupcake.id}}' class='container mb-5'>
+        <h2 class='m-0 text-center'>{{cupcake.flavor}}</h2>
+        <hr class='m-0 mb-3'>
+        <div class='container d-flex flex-row align-items-center'>
+            <div class='container d-flex flex-column align-items-center'>
+                <p>Size: {{cupcake.size}}</p>
+                <p>Rating: {{cupcake.rating}}</p>
+                <button id='remove-cupcake'
+                class='btn btn-danger btn-sm d-block mb-1'
+                /> Remove Cupcake</button>
+                <a href="/api/cupcakes/{{cupcake.id}}" 
+                class='d-block btn btn-info btn-sm mt-1'>Details</a>
+            </div>
+            <div class='container-lg'>
+                <img class='img-fluid' src="{{cupcake.image}}" alt="Image of {{cupcake.name}} cupcake">
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+  </div>
+  <div class="p-4 container d-flex flex-column border-start border-dark">
+    <h2 class="p-0 m-0">Submit a new cupcake!</h2>
+    <hr class='mt-1 mb-3'>
+    <form class="" action="/api/cupcakes" method="POST">
+      <div class="input-group mb-3">
+        <label class="input-group-text" for="flavor">Flavor</label>
+        <input
+          class="form-control"
+          id="flavor"
+          type="text"
+          name="flavor"
+          placeholder="Enter the flavor..."
+        />
+      </div>
+      <div class="input-group mb-3">
+        <label class="input-group-text" for="size">Size</label>
+        <input
+          class="form-control"
+          id="size"
+          type="text"
+          name="size"
+          placeholder="Enter the size..."
+        />
+      </div>
+      <div class="input-group mb-3">
+        <label class="input-group-text" for="rating">Rating</label>
+        <input
+          class="form-control"
+          id="rating"
+          type="text"
+          name="rating"
+          placeholder="Enter your rating..."
+        />
+      </div>
+      <div class="input-group mb-3">
+        <label class="input-group-text" for="image">Image URL</label>
+        <input
+          class="form-control"
+          id="image"
+          type="text"
+          name="image"
+          placeholder="Enter a URL for the image..."
+        />
+      </div>
+      <button class="btn btn-primary">Add Cupcake</button>
+    </form>
+  </div>
+</div>
+{% endblock %}
