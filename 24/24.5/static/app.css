@@ -1,0 +1,11 @@
+.fifty-percent {
+    width: 50%;
+}
+
+body{
+    background-color: lightgoldenrodyellow;
+}
+
+.text-decoration-thickness-sm {
+    text-decoration-thickness: 5% !important;
+}

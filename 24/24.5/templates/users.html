@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% block title %}{{user.username}}'s Page{% endblock %}
+{% block content %}
+<div class="container mb-5">
+    <h1 class='display-2 text-decoration-underline text-decoration-thickness-sm'>{{user.username}}</h1>
+    <ul class='list-group mb-2'>
+        <li class='list-group-item d-flex justify-content-between align-items-start'>
+            <div class='ms-2 me-auto'>
+                <div class='fw-bold'>Email</div>
+                {{user.email}}
+            </div>
+        </li>
+        <li class='list-group-item d-flex justify-content-between align-items-start'>
+            <div class='ms-2 me-auto'>
+                <div class='fw-bold'>First Name</div>
+                {{user.first_name}}
+            </div>
+        </li>
+        <li class='list-group-item d-flex justify-content-between align-items-start'>
+            <div class='ms-2 me-auto'>
+                <div class='fw-bold'>Last Name</div>
+                {{user.last_name}}
+            </div>
+        </li>
+        <li class='list-group-item d-flex justify-content-between align-items-start'>
+            <div class='ms-2 me-auto'>
+                <div class='fw-bold'>Joined</div>
+                {{user.joined}}
+            </div>
+        </li>
+    </ul>
+    <form action='/users/{{user.username}}/delete' method='POST'>
+        <button class='btn btn-sm btn-danger'>Delete Account</button>
+        <a class='btn btn-sm btn-primary' href="/users/{{user.username}}/feedback/add">Give Feedback</a>
+    </form>
+    
+</div>
+<div class="container">
+    <h2 class='text-decoration-underline'>{{user.username}}'s Feedback</h2>
+    {% if posts %}
+    <div class="container"></div>
+        <ul class='list-group mb-2'>
+            {% for post in posts %}
+            <li id='{{post.id}}' class='list-group-item list-group-item-dark d-flex justify-content-between align-items-start'>
+                <div class='mx-2 mb-3 px-2 me-auto'>
+                    <h2 class='fw-normal text-decoration-underline text-decoration-thickness-sm'>{{post.title}}</h2>
+                    <p>{{post.content}}</p>
+                    <form action='/feedback/{{post.id}}/delete' method='POST'>
+                        <a class='btn btn-sm btn-primary' href="/feedback/{{post.id}}/update">Edit Post</a>
+                        <button class='btn btn-sm btn-danger'>Remove Post</button>
+                    </form>
+                </div>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>  
+    {% else %}
+        <p>{{user.username}} has no posts.</p>
+    {% endif %}
+</div>
+{% endblock %}
