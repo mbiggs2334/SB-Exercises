@@ -49,16 +49,15 @@ function get(url){
 };
 
 //handles the promise resolves/rejects
-function promiseAll(promiseArray){
-    Promise.all(promiseArray)
-    .then(res => {
-        $('#facts-list').empty()
+async function promiseAll(promiseArray){
+    try {
+        let res = await Promise.all(promiseArray);
+        $('#facts-list').empty();
         addToDom(res);
-    })
-    .catch(err => {
+    } catch {
         $('#facts-list').empty()
         $('#facts-list').append('<p class="text-center fs-4">Something went wrong. Please try again later.</p>')
-    })
+    };
 };
 
 
