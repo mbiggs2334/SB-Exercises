@@ -1,14 +1,15 @@
 let deckId;
 const cardsRemaining = document.getElementById('cards-left');
 const drawButton = document.getElementById('draw-card-btn');
+const drawButtonText = document.getElementById('draw-btn-text');
 const resetBtn = document.getElementById('reset-btn');
 
 newDeck();
 
 drawButton.addEventListener('click', e => {
-    if(drawButton.innerText === 'Draw Card'){
+    if(drawButtonText.innerText === 'Draw Card'){
         drawCard()
-    } else if (drawButton.innerText === 'New Deck'){
+    } else if (drawButtonText.innerText === 'New Deck'){
         newDeck();
     };
 });
@@ -52,6 +53,8 @@ function newDeck(){
     });
 };
 
+
+
 function drawCard(){
     getRequest(`http://deckofcardsapi.com/api/deck/${deckId}/draw/?count=1`)
     .then(res => {
@@ -75,13 +78,13 @@ function addCardToDom(resp){
     let card = document.getElementById(`${resp.cards[0].code}`);
     let lean = Math.floor(Math.random() * 2);
     if(lean === 0){
-        card.style.transform = `rotate(${Math.floor(Math.random() * 31)}deg) translate(-50%, -50%)`;
+        card.style.transform = `rotate(${Math.floor(Math.random() * 31)}deg) translate(-55%, -45%)`;
     } else {
-        card.style.transform = `rotate(-${Math.floor(Math.random() * 31)}deg) translate(-50%, -50%)`;
+        card.style.transform = `rotate(-${Math.floor(Math.random() * 31)}deg) translate(-46%, -53%)`;
     };
 };
 
 function readyForNewDeck(){
-    drawButton.innerText = 'New Deck';
+    drawButtonText.innerText = 'New Deck';
     cardsRemaining.innerText = 0;
 };
