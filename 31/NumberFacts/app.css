@@ -1,0 +1,69 @@
+button, a {
+    transition: all .3s ease !important;
+}
+
+.no-outline:focus {
+    box-shadow: none !important;
+}
+
+.no-highlight {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+
+.form-control:focus {
+    border-color: black !important;
+    transition: all .2s ease !important;
+}
+
+.field-selection {
+	display: flex;
+	overflow: hidden;
+}
+
+.field-selection input {
+	clip: rect(0, 0, 0, 0);
+	height: 1px;
+	width: 1px;
+	border: 0;
+	overflow: hidden;
+}
+
+.blue {
+    background-color: rgba(0, 94, 138, 0.568);
+}
+
+.field-selection label {
+	background-color: #e4e4e4;
+	color: rgba(0, 0, 0, 0.6);
+	font-size: 14px;
+	line-height: 1;
+	text-align: center;
+	padding: 8px 16px;
+	margin-right: -1px;
+	border: 1px solid rgba(0, 0, 0, 0.2);
+	box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px rgba(255, 255, 255, 0.1);
+	transition: all 0.1s ease-in-out;
+}
+
+.field-selection label:hover {
+	cursor: pointer;
+}
+
+.field-selection input:checked + label {
+	background-color: #0066da;
+	box-shadow: none;
+    color: white;
+}
+
+.field-selection label:first-of-type {
+	border-radius: 4px 0 0 4px;
+}
+
+.field-selection label:last-of-type {
+	border-radius: 0 4px 4px 0;
+}
