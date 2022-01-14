@@ -43,6 +43,8 @@
 
 .card {
     position: fixed;
+    border-radius: 15px;
+    background-color: black;
 }
 
 #card-display, .center {

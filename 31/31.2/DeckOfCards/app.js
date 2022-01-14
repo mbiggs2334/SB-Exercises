@@ -71,7 +71,7 @@ function drawCard(){
 
 function addCardToDom(resp){
     $('#card-display').append(`
-    <img id='${resp.cards[0].code}' class='card bg-success' src='${resp.cards[0].image}'>
+    <img id='${resp.cards[0].code}' class='card' src='${resp.cards[0].image}'>
     `);
     let card = document.getElementById(`${resp.cards[0].code}`);
     let lean = Math.floor(Math.random() * 2);

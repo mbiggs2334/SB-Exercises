@@ -38,42 +38,40 @@ function getRequest(url){
     });
 };
 
-function newDeck(){
+async function newDeck(){
     $('#card-display').empty();
     document.getElementById('draw-btn-text').innerText = 'Draw Card';
-    getRequest('http://deckofcardsapi.com/api/deck/new/shuffle/?deck_count=1')
-    .then(res => {
+    try {
+        let res = await getRequest('http://deckofcardsapi.com/api/deck/new/shuffle/?deck_count=1');
         if(res.success){
             deckId = res.deck_id;
             cardsRemaining.innerText = 52;
         };
-    })
-    .catch(err => {
-        console.log(err);
-    });
+    } catch {
+        throw error
+    };
 };
 
 
 
-function drawCard(){
-    getRequest(`http://deckofcardsapi.com/api/deck/${deckId}/draw/?count=1`)
-    .then(res => {
-        if(res.remaining === 0){
+async function drawCard(){
+    try {
+        let res = await getRequest(`http://deckofcardsapi.com/api/deck/${deckId}/draw/?count=1`)
+        if (res.remaining === 0){
             readyForNewDeck();
         } else {
             addCardToDom(res);
             cardsRemaining.innerText = res.remaining;
         };
-    })
-    .catch(err => {
-        console.log(err);
-    });
+    } catch {
+        throw error
+    };
 };
 
 
 function addCardToDom(resp){
     $('#card-display').append(`
-    <img id='${resp.cards[0].code}' class='card bg-success' src='${resp.cards[0].image}'>
+    <img id='${resp.cards[0].code}' class='card' src='${resp.cards[0].image}'>
     `);
     let card = document.getElementById(`${resp.cards[0].code}`);
     let lean = Math.floor(Math.random() * 2);
