@@ -14,12 +14,10 @@ class NumbersArray {
     };
 
     getMean(nums){
-        
         this.mean = nums.reduce((num, nxt) => num + nxt) / nums.length;
     };
 
     getMedian(nums){
-        let median;
         function compareNumbers(a,b){
             return a - b;
         };
@@ -27,7 +25,7 @@ class NumbersArray {
         if(sortedNums.length % 2 === 0){
             this.median = (sortedNums[sortedNums.length / 2] + sortedNums[(sortedNums.length / 2) - 1]) / 2;
         } else {
-            this.median = sortedNums[Math.ceil(sortedNums.length / 2) - 1]
+            this.median = sortedNums[Math.ceil(sortedNums.length / 2) - 1];
         };
     };
 
@@ -67,7 +65,7 @@ class NumbersArray {
                 let error = new Error(`${idx} are not valid numbers.`);
                 error.status = 400;
                 throw error;
-            }            
+            };            
         };    
     };
 
